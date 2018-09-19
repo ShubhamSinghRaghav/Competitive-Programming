@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+//#define push_back pb
+using namespace std;
+void addedge(vector<long long int> vect[],long long int u,long long int v){
+    vect[u].push_back(v);
+    vect[v].push_back(u);
+}
+int main(){
+    long long int n,m,a,b,x,y;
+    cin>>n>>m>>a>>b;
+    vector<long long int> v[n+1];
+    vector<long long int> l;
+    for(long long i=0;i<m;i++){
+        cin>>x>>y;
+        addedge(v,x,y);
+    }
+    
+    for(long long i=0;i<n;i++)  l.push_back(v[i+1].size());
+    long long int mina = *min_element(std::begin(l), std::end(l));
+    long long int maxa = *max_element(std::begin(l), std::end(l));
+    long long int count = 0;
+    //cout<<mina<<maxa;
+    //cout<<l.size();
+    for(long long int i=0;i<l.size();i++){
+      //  cout<<l[i]<<"\n";
+        if(a*mina< l[i] &&  l[i]<b*maxa) count++;
+    }
+    cout<<count;
+    return 0;
+}

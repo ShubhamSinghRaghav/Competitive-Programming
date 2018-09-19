@@ -1,0 +1,179 @@
+// C++ program to print all paths from a source to destination.
+#include<bits/stdc++.h>
+#include <list>
+using namespace std;
+ 
+#define MAX 300005
+string currentArray[MAX];
+//int iota;
+
+////////////////////////////////////
+void MergeSortA(int low , int high);
+void MergeA(int low ,int mid ,int high);
+void MergeSortA(int low , int high)
+{
+    int mid = 0;
+    if(low < high)
+    {
+        mid = ((low+high)/2);
+        MergeSortA(low , mid);
+        MergeSortA(mid+1,high);
+        MergeA(low,mid,high);
+    }
+}
+void MergeA(int low ,int mid , int high)
+{
+    int i = low, j = mid+1 , k = low;
+    string Temp[5];
+
+    while(i <= mid && j <= high)
+    {
+        if( currentArray[i] < currentArray[j] )
+        {
+            Temp[k].assign(currentArray[i]);
+            i++;
+        }
+        else
+        {
+            Temp[k].assign(currentArray[j]);
+            j++;
+        }
+        k++;
+    }
+    if(i > mid )
+    {
+        for(int h = j ;h <= high ; h++ )
+        {
+            Temp[k].assign(currentArray[h]);
+            k++;
+        }
+    }
+    else
+        for(int h = i; h<= mid ; h++ )
+        {
+            Temp[k].assign(currentArray[h]);
+            k++;
+        }
+    for(int i = low; i <= high ; i++) //copy from low to high
+   {
+       currentArray[i].assign(Temp[i]);
+   }
+   // for(int i = 0; i <= high ; i++)
+   // {
+   //     currentArray[i].assign(Temp[i]);
+   // }
+}
+
+
+//////////////////////////////////
+class Graph
+{
+    int V;    // No. of vertices in graph
+    list<int> *adj; // Pointer to an array containing adjacency lists
+     
+    // A recursive function used by printAllPaths()
+    void printAllPathsUtil(int , int , bool [], int [], int &);
+ 
+public:
+    int iota;
+    string fino;
+    Graph(int V);   // Constructor
+    void addEdge(int u, int v);
+    void printAllPaths(int s, int d);
+    string checker(string s,string res);
+};
+ 
+Graph::Graph(int V)
+{
+    iota=0;
+    cin>>fino;
+    this->V = V;
+    adj = new list<int>[V];
+}
+ 
+void Graph::addEdge(int u, int v)
+{
+    adj[u].push_back(v); 
+}
+ 
+// Prints all paths from 's' to 'd'
+void Graph::printAllPaths(int s, int d)
+{
+    bool *visited = new bool[V];
+    int *path = new int[V];
+    int path_index = 0; // Initialize path[] as empty
+ 
+    for (int i = 0; i < V; i++)
+        visited[i] = false;
+ 
+    printAllPathsUtil(s, d, visited, path, path_index);
+}
+ 
+
+void Graph::printAllPathsUtil(int u, int d, bool visited[],
+                              int path[], int &path_index)
+{
+    visited[u] = true;
+    path[path_index] = u;
+    path_index++;
+ 
+    if (u == d)
+    {   string f;
+        for (int i = 0; i<path_index; i++){
+           // reso[iota][i]=fino[path[i]-1];
+            //cout<<fino[path[i]-1];
+            f+=fino[path[i]-1];
+            //s[path[i]-1]
+            //cout << path[i] << " ";
+        }
+        currentArray[iota]=f;
+     //reso.push_back(f);
+       // cout << endl;
+        iota++;
+    }
+    else 
+    {
+        list<int>::iterator i;
+        for (i = adj[u].begin(); i != adj[u].end(); ++i)
+            if (!visited[*i])
+                printAllPathsUtil(*i, d, visited, path, path_index);
+    }
+ 
+    path_index--;
+    visited[u] = false;
+}
+ 
+int main()
+{
+    //iota=0;
+    int n; cin>>n;
+    int m; cin>>m;
+    Graph g(n);
+    while(m--){
+        int x,y;cin>>x>>y;
+        g.addEdge(x, y);
+     }
+    int s, d;
+    cin>>s>>d;
+    g.printAllPaths(s, d);
+    // for(int i=0;i<g.iota;i++){
+    //     cout<<reso[i]<<"\n";
+    // }
+    if(g.iota){
+    string temp;
+    MergeSortA(0,g.iota-1);    
+    // for(int i = 0; i < g.iota-1; ++i)
+    //    for( int j = i+1; j < g.iota; ++j)
+    //    {
+    //       if(reso[i] > reso[j])
+    //       {
+    //         temp = reso[i];
+    //         reso[i] = reso[j];
+    //         reso[j] = temp;
+    //       }
+    // }
+    cout<<currentArray[0];
+    }
+    else cout<<"No Way";
+    return 0;
+}
