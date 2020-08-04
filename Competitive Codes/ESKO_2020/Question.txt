@@ -1,0 +1,42 @@
+Victor warehousing is a public warehousing company essentially in the business of leasing storage spaces to clients. Clients are charged per square feet of a unit of storage leased. To remain competitive, retain and attract additional clients, the company specializes in providing various flexible ways of leasing storage spaces.. They provide this flexibility by allowing clients to customize units of storage as per their needs. The company accepts a specification of storage units from clients and builds their storage as per the given specification. Through the client specification the clients express what are the different units of storage required and how they must be assembled together.
+
+A client specification contains two parts. The different units of storage separated by a comma in the first line and how the units are related to each other in the following n-1 lines, where n stands for the number of different units of storage. A simple client specification is illustrated in the example below:
+
+Pallet,Rack,Row,Shelf
+Pallet = 12 Rack
+Rack = 18 Row
+Row = 30 Shelf
+From the given client specification, Victor warehousing must build a standardized output specification that is easy for their internal staff to understand and assemble the storage. The output specification must be built like illustrated below starting with the largest unit of storage at the extreme left, descending to the smaller units on the right, and finally having the smallest unit of storage at the extreme right. The output specification for the example input specification from above is shown below:
+
+1Pallet = 12Rack = 216Row = 6480Shelf
+Develop a program to help Victor warehousing convert the input client specification to standardized output specification. Your program is expected to read client specification as input and produce the corresponding output specification as output.
+
+Example Input(1)
+
+Pallet,Rack,Row,Shelf
+Pallet = 12 Rack
+Rack = 18 Row
+Row = 30 Shelf
+
+Example Output(1)
+
+1Pallet = 12Rack = 216Row = 6480shelf
+
+Example Input(2)
+
+container,bay,multi-pallet,pallet
+pallet = 50 container
+bay =  5000 container
+multi-pallet = 500 container
+
+Example Output(2)
+
+1bay = 10multi-pallet = 100pallet  = 5000container
+
+Sample input 1
+Pallet,Rack,Row,Shelf
+Pallet = 12 Rack
+Rack = 18 Row
+Row = 30 Shelf
+Sample output 1
+1Pallet = 12Rack = 216Row = 6480Shelf
