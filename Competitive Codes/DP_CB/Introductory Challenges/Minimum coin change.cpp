@@ -28,9 +28,9 @@ int main(){
     dp[0] = 0;
     for(int i=1;i<=total;i++){
         dp[i] = INT_MAX;
-        for(int j=1;j<=n;j++){
-            if(n-coin[j]>=0){
-                int subp = dp[n-coin[j]];
+        for(int j=0;j<n;j++){
+            if(i-coin[j]>=0){
+                int subp = dp[i-coin[j]];
                 dp[i] = min(subp+1,dp[i]);
             }
         }
