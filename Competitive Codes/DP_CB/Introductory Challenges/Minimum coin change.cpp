@@ -5,6 +5,7 @@ using namespace std;
 //top down approach
 int minimum(vector<int>& coin,int total,int dp[],int n){
     if(n==0) return 0;
+    if(dp[n]!=0)return dp[n];
     int ans = INT_MAX;
     for(int i=0;i<n;i++){
         if(total - coin[i] > 0){
