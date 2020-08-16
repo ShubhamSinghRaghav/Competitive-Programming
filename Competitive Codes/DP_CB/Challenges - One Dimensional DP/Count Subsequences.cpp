@@ -1,6 +1,8 @@
 /*
 
-Given a string, count the number of distinct subsequences of it ( including empty subsequence ). For the uninformed, A subsequence of a string is a new string which is formed from the original string by deleting some of the characters without disturbing the relative positions of the remaining characters. For example, "AGH" is a subsequence of "ABCDEFGH" while "AHG" is not.
+Given a string, count the number of distinct subsequences of it ( including empty subsequence ). 
+For the uninformed, A subsequence of a string is a new string which is formed from the original string by deleting some of the characters 
+without disturbing the relative positions of the remaining characters. For example, "AGH" is a subsequence of "ABCDEFGH" while "AHG" is not.
 
 Input Format
 First line of input contains an integer 't' denoting number of test cases.
