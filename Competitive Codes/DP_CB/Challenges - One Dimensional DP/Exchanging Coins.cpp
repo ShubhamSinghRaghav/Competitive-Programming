@@ -1,6 +1,9 @@
 /*
 
-Tughlaq introduces a strange monetary system. He introduces copper coins and each coin has a number written on it. A coin n can be exchanged in a bank into three coins: n/2, n/3 and n/4. A coin can also be sold for gold. One can get as much grams of gold as the number written on the coin. You have one copper coin. What is the maximum weight of gold one can get from it?
+Tughlaq introduces a strange monetary system. He introduces copper coins and each coin has a number written on it. 
+A coin n can be exchanged in a bank into three coins: n/2, n/3 and n/4. 
+A coin can also be sold for gold. One can get as much grams of gold as the number written on the coin. 
+You have one copper coin. What is the maximum weight of gold one can get from it?
 
 Input Format
 The input file contains a single integer n, the number on the coin.
