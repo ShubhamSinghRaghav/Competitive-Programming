@@ -1,12 +1,15 @@
 /*
 
-Let's define a new game of snakes and ladders. There is only one dimension of n cells. Each cell either contains a snake or ladder. One can simply take a jump of not more than k cells. A person cannot step on a snake. However, s/he can jump over a snake.
+Let's define a new game of snakes and ladders. There is only one dimension of n cells. Each cell either contains a snake or ladder. 
+One can simply take a jump of not more than k cells. A person cannot step on a snake. However, s/he can jump over a snake.
 Alice is excited to play this game and is asking you to calculate the number of ways to finish the game.
 Game starts at 1st cell and ends at the nth cell. It is guaranteed that there is a ladder at the 1st cell.
 Since the number can be large, output the answer modulo (109+7).
 
 Input Format
-First line contains 2 integers N and K, denoting the number of cells and the maximum possible jump respectively. The next line contains N integers, x1, x2,…., xN, where xi is either 0 or 1. xi=0 denotes that there is a ladder in ith cell, xi=1 denotes that there is a snake in ith cell.
+First line contains 2 integers N and K, denoting the number of cells and the maximum possible jump respectively. 
+The next line contains N integers, x1, x2,…., xN, where xi is either 0 or 1. 
+xi=0 denotes that there is a ladder in ith cell, xi=1 denotes that there is a snake in ith cell.
 
 Constraints
 1<=N<=10^4 1<=K<=10^4 0<=xi<=1
