@@ -1,6 +1,7 @@
 /*
 
-Mike’s boss gave him a string of opening and closing parenthesis asked him to find a valid parenthesis substring in it. He will get number of bounties equal to the length of substring he finds in return. What is the maximum amount of number of bounties he can get?
+Mike’s boss gave him a string of opening and closing parenthesis asked him to find a valid parenthesis substring in it. 
+He will get number of bounties equal to the length of substring he finds in return. What is the maximum amount of number of bounties he can get?
 
 Input Format
 The input file has a single line which contains a single string str that Mike's boss gave to him.
